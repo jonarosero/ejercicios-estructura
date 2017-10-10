@@ -75,7 +75,7 @@ public class Algoritmos {
         obtener_arreglo();
     }
     
-    
+    //faltan dos ejercicios
     
     
 }
