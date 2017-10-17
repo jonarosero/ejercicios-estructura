@@ -69,7 +69,7 @@ public class Algoritmos {
     public void modificar_arreglo() {
         System.out.println("Ingrese la posicion que quiere modificar: ");
         int j = scan.nextInt() - 1;
-        if (j < lim) {
+        if (j < lim && j > 0) {
             System.out.println("Ingrese el nuevo numero: ");
             int num = scan.nextInt();
             arreglo[j] = num;
