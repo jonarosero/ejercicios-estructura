@@ -28,7 +28,7 @@ public class Operaciones_Arreglos {
                     obj.ordenarA(array);
                     break;
                 case 4:
-                    obj.insertarA(array);
+                    array = obj.insertarA(array);
                     break;
                 case 5:
                     opcion2 = obj.MenuB();
@@ -36,19 +36,33 @@ public class Operaciones_Arreglos {
                         System.out.println("Ingrese el numero a buscar: ");
                         elemento = scan.nextInt();
                         obj.buscar(array,elemento);
-                    }else{
+                    }else if(opcion2 == 2){
                         System.out.println("Ingrese el numero a buscar: ");
                         elemento = scan.nextInt();
                         obj.ordenarA(array);
-                        obj.buscarBin(array, elemento);
+                        int buscar = obj.buscarBin(array, elemento);
+                        if (buscar == -1){
+                            System.out.println("El numero no existe en el arreglo");
+                        }else{
+                            System.out.printf("El numero %d se encuentra en la posicion: %d\n", elemento, buscar+1);
+                        }
+                    }else{
+                        System.out.println("La opcion ingresada es incorrecta");
                     }
+                    break;
+                case 6: 
+                    System.out.printf("El total de espacios vacios son: %d\n"
+                            + "El total de espacios ocupados son: %d\n", obj.getLibre(), obj.getOcupado());
+                    break;
+                case 7:
+                    array = obj.eliminarA(array);
                     break;
                 case 0:
                     System.out.println("Gracias por su atencion");
                     break;
                     
             }
-        }while(opcion1 < 6 || opcion1 > 0);
+        }while(opcion1 !=0);
     }
     
 }

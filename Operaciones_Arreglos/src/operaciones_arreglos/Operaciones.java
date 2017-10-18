@@ -4,18 +4,35 @@ import java.util.Scanner;
 
 public class Operaciones {
     Scanner scan = new Scanner(System.in);
+    private int libre;
+    private int ocupado;
     
     public int MenuP(){
         int opcion1;
-        System.out.printf("MENU\n1.LEER\n2.PRESENTAR\n3.ORDENAR\n4.INSERTAR\n5.BUSCAR\n0.SALIR\nIngrese el numero del menu: \n");
+        System.out.printf("MENU\n1.LEER\n2.PRESENTAR\n3.ORDENAR\n4.INSERTAR\n5.BUSCAR\n6.Cantidad de espacios LIBRES Y OCUPADOS\n7.Eliminar\n0.SALIR\nIngrese el numero del menu: \n");
         opcion1 = scan.nextInt();
         return opcion1;
     }
     
     public void leerA(int[]A){
+        libre = A.length;
+        ocupado = 0;
         for (int i = 0; i < A.length; i++) {
-            System.out.printf("Ingrese el valor de la %d posición: ", i + 1);
-            A[i] = scan.nextInt();
+            System.out.printf("Desea ingresar un valor en la posicion: %d\n"
+                    + "1.Si\n"
+                    + "2.No\n"
+                    + "3.Terminar el ingreso\nIngrese el numero de la accion: \n", i+1);
+            int ingreso = scan.nextInt();
+            if (ingreso == 1){
+                System.out.printf("Ingrese el valor de la %dª posición: ", i + 1);
+                A[i] = scan.nextInt();
+                libre--;
+                ocupado++;
+            }else if(ingreso ==2){
+                A[i] = 0;
+            }else {
+                break;
+            }
         }
         
     }
@@ -40,20 +57,22 @@ public class Operaciones {
         }
     }
     
-    public void insertarA(int[]A){
-        System.out.println("Ingrese el numero a insertar en el arreglo: ");
-        int num = scan.nextInt();
-        int lim = A.length;
-        lim = lim + 1;
-        int []aux = new int[lim];
-        aux[lim-1] = num;
-        for (int i = 0; i < lim-1; i++){
-            aux[i] = A[i];
+    public int[] insertarA(int[]A){
+        if (this.libre == 0){
+            System.out.println("No existe lugares vacios donde ingresar mas numeros");
+        }else{
+            System.out.println("Ingrese una posicion donde ingresar el numero: ");
+            int pos = scan.nextInt()-1;
+            if (A[pos]!=0){
+                System.out.println("El espacio ya esta ocupado");
+            }else if (A[pos]==0){
+                System.out.println("Ingrese un numero: ");
+                A[pos] = scan.nextInt();
+                this.libre--;
+                this.ocupado++;
+            }
         }
-        A = new int[lim];
-        for (int i = 0; i < lim; i++){
-            A[i] = aux[i];
-        }
+       return A;
     }
     
     public int MenuB(){
@@ -97,5 +116,33 @@ public class Operaciones {
         
         
     }
+    
+    public int[] eliminarA(int []A){
+        if (libre == A.length){
+            System.out.println("No existe numeros a eliminar");
+        }else{
+            System.out.println("Ingrese la posicion del numero a eliminar");
+            int pos = scan.nextInt()-1;
+            if(A[pos] == 0){
+                System.out.println("En esa posicion no existe un numero a eliminar");
+            }else{
+                A[pos]=0;
+                this.libre++;
+                this.ocupado--;
+            }
+        }
+        return A;
+    }
+    
+
+
+    public int getLibre() {
+        return libre;
+    }
+
+    public int getOcupado() {
+        return ocupado;
+    }
+    
     
 }
