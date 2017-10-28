@@ -1,4 +1,4 @@
-package ejercicios_arreglos;
+package ejercicio1;
 
 import java.util.Scanner;
 
@@ -24,8 +24,8 @@ public class Metodo_Ejercicio1 {
         }
         public void obtener_matriz(){
             matriz = new int[fila][columna];
-            for (int i = 0; i < fila; i++){
-                for (int j = 0; j < columna; j++){
+            for (int i = 0; i < matriz.length; i++){
+                for (int j = 0; j < matriz[0].length; j++){
                     System.out.printf("Ingrese un numero para la posicion %s,%d: ", i+1, j+1);
                     matriz[i][j] = scan.nextInt();
                 }
@@ -37,19 +37,25 @@ public class Metodo_Ejercicio1 {
         }
         public void calcular_columna(){
             this.suma_columna = new int[columna];
-            for (int i = 0; i < columna; i++){
-                for (int j = 0; i < fila; i++){
-                    this.suma_columna[i] = this.suma_columna[i] + this.matriz[i][j];
+            
+            for (int i = 0; i < this.matriz[0].length; i++){
+                int sum = 0;
+                for (int j = 0; i < this.matriz.length; i++){
+                    sum = sum + this.matriz[i][j];
                 }
+                this.suma_columna[i] = sum; 
             }
             
         }
         public void calcular_fila(){
             this.suma_fila = new int[fila];
-            for (int i = 0; i < fila; i++){
-                for (int j = 0; i < columna; i++){
-                    this.suma_fila[i] = this.suma_fila[i] + this.matriz[i][j];
+            
+            for (int i = 0; i < this.matriz.length; i++){
+                int sum = 0;
+                for (int j = 0; i < this.matriz[i].length; i++){
+                    sum = sum + this.matriz[i][j];
                 }
+                this.suma_fila[i] = sum;
             }
             
         }
