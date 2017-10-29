@@ -48,7 +48,7 @@ public class Metodo_Ejercicio9 {
         System.out.println("FUMADORES");
         for (int i = 0; i < A.length; i++) {
             if (i == 30) {
-                System.out.println("\nNO FUMADORES");
+                System.out.println("\nlNO FUMADORES");
             }
             System.out.printf("%d ", A[i]);
         }
