@@ -40,7 +40,9 @@ public class Operaciones_Arreglos {
                         System.out.println("Ingrese el numero a buscar: ");
                         elemento = scan.nextInt();
                         obj.ordenarA(array);
-                        int buscar = obj.buscarBin(array, elemento);
+                        int fin = array.length;
+                        int ini = 0;
+                        int buscar = obj.buscarBin(array, elemento, ini, fin);
                         if (buscar == -1) {
                             System.out.println("El numero no existe en el arreglo");
                         } else {

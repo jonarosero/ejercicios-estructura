@@ -101,23 +101,23 @@ public class Operaciones {
 
     }
 
-    public int buscarBin(int[] A, int num) {
-        int fin = A.length - 1, ini = 0, medio;
-        while (ini <= fin) {
-            medio = (fin + ini) / 2;
-            if (A[medio] == num) {
-                return medio;
-            } else {
-                if (num < A[medio]) {
-                    fin = medio - 1;
-                } else {
-                }
-                ini = medio + 1;
-            }
-        }
-        return -1;
-
-    }
+//    public int buscarBin(int[] A, int num) {
+//        int fin = A.length - 1, ini = 0, medio;
+//        while (ini <= fin) {
+//            medio = (fin + ini) / 2;
+//            if (A[medio] == num) {
+//                return medio;
+//            } else {
+//                if (num < A[medio]) {
+//                    fin = medio - 1;
+//                } else {
+//                }
+//                ini = medio + 1;
+//            }
+//        }
+//        return -1;
+//
+//    }
 
     public int[] eliminarA(int[] A) {
         if (libre == A.length) {
@@ -148,6 +148,24 @@ public class Operaciones {
 
     public int getOcupado() {
         return ocupado;
+    }
+    public int buscarBin(int[] A, int num, int izd, int der) {
+        int m = (int)((izd + der) / 2);
+         
+        if ((izd == der && A[m] != num) || A[der] < num || A[izd] > num){
+            return -1;
+        }
+        
+        if (A[m] == num){
+            return m;
+        }else{
+            if (A[m] > num){
+                return this.buscarBin(A, num, izd, m - 1);
+            }else{
+                return this.buscarBin(A, num, m + 1, der);
+            }
+            
+        }
     }
 
 }
