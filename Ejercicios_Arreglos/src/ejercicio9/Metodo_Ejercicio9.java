@@ -63,10 +63,10 @@ public class Metodo_Ejercicio9 {
             System.out.println("Ingrese el asiento a reservar:\n"
                     + "1-30.FUMADORES\n"
                     + "31-100.NO FUMADORES");
-            int pos = scan.nextInt()-1;
-            if (pos > A.length){
+            int pos = scan.nextInt() - 1;
+            if (pos > A.length) {
                 System.out.println("El numero del asiento no existe.");
-            }else{
+            } else {
                 if (A[pos] != 0) {
                     System.out.println("El asiento ya esta reservado");
                 } else if (A[pos] == 0) {
@@ -75,7 +75,7 @@ public class Metodo_Ejercicio9 {
                     this.ocupado++;
                 }
             }
-            
+
         }
         return A;
     }
@@ -100,6 +100,5 @@ public class Metodo_Ejercicio9 {
     public int getOcupado() {
         return ocupado;
     }
-
 
 }

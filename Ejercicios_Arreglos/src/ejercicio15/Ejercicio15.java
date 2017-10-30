@@ -1,21 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ejercicio15;
 
-/**
- *
- * @author USUARIO
- */
+import java.util.Scanner;
+
 public class Ejercicio15 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner scan = new Scanner(System.in);
+        Metodo_Ejercicio15 met = new Metodo_Ejercicio15();
+        
+        System.out.println("Ingrese el tamaño del cuadrado magico:");
+        int n = scan.nextInt();
+        
+        int matriz[][] = met.cuadroMagico(n);
+        met.presentar(matriz);
+        
     }
     
 }

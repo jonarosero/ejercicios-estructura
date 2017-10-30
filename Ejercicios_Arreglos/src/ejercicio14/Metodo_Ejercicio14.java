@@ -3,9 +3,10 @@ package ejercicio14;
 import java.util.Scanner;
 
 public class Metodo_Ejercicio14 {
+
     Scanner scan = new Scanner(System.in);
-    private int [][]matriz;
-    
+    private int[][] matriz;
+
     public void ingresar_matriz() {
         System.out.println("Introduzca las filas:");
         int filas = scan.nextInt();
@@ -19,16 +20,16 @@ public class Metodo_Ejercicio14 {
             }
         }
     }
-    
-    public void imprimir(){
+
+    public void imprimir() {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
                 System.out.printf("%d ", matriz[i][j]);
             }
             System.out.println();
-        }    
+        }
     }
-    
+
     public void ordenar() {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {

@@ -46,5 +46,5 @@ public class Ejercicio13 {
         } while (opcion1 != 0);
 
     }
-    
+
 }

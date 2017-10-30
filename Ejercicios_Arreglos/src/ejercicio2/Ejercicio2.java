@@ -4,7 +4,7 @@ public class Ejercicio2 {
 
     public static void main(String[] args) {
         Metodo_Ejercicio2 met = new Metodo_Ejercicio2();
-        
+
         met.establecer_Limite();
         met.establecer_vector();
         met.calcular_neg();
@@ -13,5 +13,5 @@ public class Ejercicio2 {
         met.presentar_vector();
         met.presentar_resultados();
     }
-    
+
 }

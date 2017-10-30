@@ -7,5 +7,5 @@ public class Ejercicio7 {
         met.establecer_arreglo();
         met.presentar();
     }
-    
+
 }
