@@ -24,6 +24,62 @@ public class Arboles {
 
     }
     
+    public void Preorden(Nodo actual){
+        if (actual != null) {
+            System.out.print(actual.valor);
+            Preorden(actual.izq);
+            Preorden(actual.der);
+        }
+    }
+    
+    public void Inorden(Nodo actual){
+        if (actual != null) {
+            Inorden(actual.izq);
+            System.out.print(actual.valor);
+            Inorden (actual.der);
+        }
+    }
+    
+    public void Postorden(Nodo actual){
+        if (actual != null) {
+            Postorden(actual.izq);
+            Postorden(actual.der);
+            System.out.print(actual.valor);
+        }
+    }
+    
+    public void Eliminar(Nodo actual, int valor){
+        if ((actual.valor != valor) && (actual != null)){
+            if (valor > actual.valor){
+                Eliminar(actual.der, valor);
+                
+            }else{
+                Eliminar(actual.izq, valor);
+            }
+        }else{
+            if((actual.der == null) && (actual.izq == null)){
+                actual = null;
+            }else{ 
+                if(actual.izq != null){
+                    Nodo aux = actual.izq;
+                    while(aux.der != null){
+                        aux = aux.der;
+                    }
+                    actual.valor = aux.valor;
+                    aux = aux.izq;
+                }else{
+                    Nodo aux = actual.der;
+                    while(aux.izq != null){
+                        aux = aux.izq;
+                    }
+                    actual.valor = aux.valor;
+                    aux = aux.der;
+                }
+                
+            }
+        }
+    }
+    
     public static void main(String[] args) {
         // TODO code application logic here
     }
