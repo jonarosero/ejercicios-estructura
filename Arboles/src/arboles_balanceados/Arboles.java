@@ -10,12 +10,22 @@ package arboles_balanceados;
  * @author USUARIO
  */
 public class Arboles {
+    Nodo raiz = null;
 
-    /**
-     * @param args the command line arguments
-     */
+    public void AddNodo(Nodo actual, int valor) {
+        if (actual == null) {
+            Nodo nuevo = new Nodo(valor);
+            actual = nuevo;
+        } else if (actual.valor < valor) {
+            AddNodo(actual.der, valor);
+        } else {
+            AddNodo(actual.izq, valor);
+        }
+
+    }
+
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
+
 }
