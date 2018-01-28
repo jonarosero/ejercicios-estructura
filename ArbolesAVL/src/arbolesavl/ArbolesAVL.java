@@ -10,8 +10,8 @@ package arbolesavl;
  * @author JR
  */
 import java.util.Scanner;
+
 public class ArbolesAVL {
-    
 
     /**
      * @param args the command line arguments
@@ -22,7 +22,7 @@ public class ArbolesAVL {
         Scanner scan = new Scanner(System.in);
         int op = 0;
         int op2 = 2;
-        do{
+        do {
             System.out.printf("\n\t\tARBOLES AVL\n "
                     + "1)Ingresar Nodos\n "
                     + "2)Eliminar Nodos\n "
@@ -32,10 +32,10 @@ public class ArbolesAVL {
                     + "0)Terminar\n ");
             System.out.print("Eliga una opcion: ");
             op = scan.nextInt();
-            
-            switch (op){
+
+            switch (op) {
                 case 1:
-                    do{
+                    do {
                         System.out.println("Ingrese un valor para el nuevo Nodo: ");
                         int dato = scan.nextInt();
                         avl.insertar(dato);
@@ -43,9 +43,12 @@ public class ArbolesAVL {
                                 + "1)Si\n "
                                 + "2)No");
                         op2 = scan.nextInt();
-                    }while(op2 != 2);
+                    } while (op2 != 2);
                     break;
                 case 2:
+                    System.out.println("Ingrese el valor a eliminar: ");
+                    int dato = scan.nextInt();
+                    avl.Eliminar(avl.getRaiz(), dato);
                     break;
                 case 3:
                     System.out.print("Recorrido PREORDEN: ");
@@ -65,9 +68,8 @@ public class ArbolesAVL {
                 case 0:
                     System.out.println("Finalizando....");
             }
-        }while (op != 0);
-        
-        
+        } while (op != 0);
+
     }
-    
+
 }
