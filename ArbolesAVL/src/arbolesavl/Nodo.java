@@ -10,6 +10,7 @@ package arbolesavl;
  * @author JR
  */
 public class Nodo {
+
     int dato;
     int factor;
     Nodo izq;
@@ -21,6 +22,5 @@ public class Nodo {
         this.izq = null;
         this.der = null;
     }
-    
-    
+
 }

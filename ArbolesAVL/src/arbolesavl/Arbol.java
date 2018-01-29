@@ -228,21 +228,19 @@ public class Arbol {
 
     //Reemplazar el nodo a eliminar
     public Nodo Reemplazar(Nodo actual) {
-        Nodo reemplazar = actual;
-        Nodo reemplazo = actual;
-        Nodo auxiliar = actual.der;
-        while (auxiliar != null) {
-            reemplazar = reemplazo;
-            reemplazo = auxiliar;
-            auxiliar = auxiliar.izq;
+        if(actual.izq.factor < actual.der.factor){
+            while (actual.izq != null) {
+                actual = actual.izq;
+            }
+        
+        }else{
+            while (actual.der != null) {
+                actual = actual.der;
+            }
         }
-        if (reemplazo != actual.der) {
-            reemplazar.der = reemplazo.der;
-            reemplazo.der = actual.der;
-        }
-        return reemplazo;
+        return actual;
     }
-
+    //Elimina y equilibra
     public Nodo Eliminar(Nodo actual, int dato) {
         boolean eliminado = eliminar_dato(dato);
         if (eliminado == false) {
