@@ -228,18 +228,21 @@ public class Arbol {
 
     //Reemplazar el nodo a eliminar
     public Nodo Reemplazar(Nodo actual) {
-        if(actual.izq.factor < actual.der.factor){
+        //menor de los mayores
+        if (actual.izq.factor < actual.der.factor) {
             while (actual.izq != null) {
                 actual = actual.izq;
             }
-        
-        }else{
+
+        } else {
+            //mayor de los menores
             while (actual.der != null) {
                 actual = actual.der;
             }
         }
         return actual;
     }
+
     //Elimina y equilibra
     public Nodo Eliminar(Nodo actual, int dato) {
         boolean eliminado = eliminar_dato(dato);
